@@ -21,6 +21,22 @@ export class SubmitFeedbackUseCase {
   async execute(request: ISubmitFeedbackUseCaseRequest) {
     const { type, comment, screenshot } = request;
 
+    if (!type) {
+      throw new Error('Type is required.');
+    }
+
+    if (!(type === 'BUG' || type === 'IDEA' || type === 'OTHER')) {
+      throw new Error('Invalid type format.');
+    }
+
+    if (!comment) {
+      throw new Error('Comment is required.');
+    }
+
+    if (screenshot && !screenshot.startsWith('data:image/png;base64')) {
+      throw new Error('Invalid screenshot format.');
+    }
+
     this.feedbackRepository.create({
       type,
       comment,
