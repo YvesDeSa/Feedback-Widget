@@ -1,3 +1,5 @@
+import "reflect-metadata";
+
 import { inject, injectable } from "tsyringe";
 import { IMailAdapter } from "../adapters/IMailAdapter";
 import { IFeedbacksRepository } from "../repositories/IFeedbacksRepository";
