@@ -1,3 +1,6 @@
+import 'react-native-gesture-handler';
+import React from 'react';
+
 import { StatusBar } from 'expo-status-bar';
 
 import AppLoading from 'expo-app-loading';
@@ -5,7 +8,7 @@ import AppLoading from 'expo-app-loading';
 import { View } from 'react-native';
 import { theme } from './src/theme';
 
-import { Widget } from './src/components/Widget';
+import Widget from './src/components/Widget';
 
 import {
   useFonts,
@@ -20,9 +23,9 @@ export default function App() {
     Inter_500Medium
   });
 
-  // if (!fontsLoaded) {
-  //   return <AppLoading />;
-  // }
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
 
   return (
     <View style={{
@@ -30,13 +33,14 @@ export default function App() {
       backgroundColor: theme.colors.background
     }}>
 
-      <Widget />
-
       <StatusBar
         style="light"
         backgroundColor='transparent'
         translucent
       />
+
+      <Widget />
+
     </View>
   );
 }
