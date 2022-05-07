@@ -5,7 +5,7 @@ import { SubmitFeedbackUseCase } from './use-cases/SubmitFeedbackUseCase';
 export const routes = express.Router();
 
 
-routes.post('/feedback', async (request, response) => {
+routes.post('/feedbacks', async (request, response) => {
   const { type, comment, screenshot } = request.body;
 
   const submitFeedbackUseCase = container.resolve(SubmitFeedbackUseCase);

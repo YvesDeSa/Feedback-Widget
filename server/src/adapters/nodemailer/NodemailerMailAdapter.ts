@@ -18,7 +18,6 @@ export class NodemailerMailAdapter implements IMailAdapter {
       to: 'Yves de Sá <yves@gmail.com>',
       subject,
       html: body,
-    })
-    console.log('envio de email nodemailer');
+    });
   };
 }
